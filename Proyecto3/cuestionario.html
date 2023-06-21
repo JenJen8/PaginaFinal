@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcd.bootstrapcdn.con/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="estilo.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+<link href="https://fonts.cdnfonts.com/css/blooming" rel="stylesheet">
+                
+
+  <title>Pagina Personal Jenifer</title>
+</head>
+<body>
+  
+    <div style="margin:24px;">
+   <nav class="navbar navbar-light" style="background-color: #304C89;">
+        <div class="container">
+        <a class="navbar-brand" href="index.html">Inicio</a>
+        <ul class="nav navbar-nav">
+          <li>
+        <a href="calculadora.html">Calculadora</a>
+    </li>
+    <li>
+        <a href="calculadorafisica.html">CalculadoraFisica</a>
+    </li>
+    <li>
+    <a href="perfil.html">Perfil</a>
+    </li>
+     <li>
+    <a href="movies.html">Movies</a>
+    </li>
+     <li>
+    <a href="cuestionario.html">Cuestionario</a>
+    </li>
+     <li>
+    <a href="formulario.html">Formulario</a>
+    </li>
+     <li>
+    <a href="resultado.html">Resultado</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<style>
+
+
+.quiz-container{
+  background-color: #DBE4EE;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px black;
+  width: 600px;
+  overflow: hidden;
+}
+
+.quiz-header{
+  padding: 1.5rem;
+}
+h2{
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+ul li{
+  font-size: 16px
+  margin: 10px 0;
+}
+ul li label{
+  cursor: pointer;
+}
+button{
+  background-color: #81A4CD;
+  color: white;
+  border: none;
+  display: block;
+  width: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Neilston', sans-serif;
+  padding: 15px;                                
+}
+button:hover{
+  background-color: #3E7CB1;
+
+}
+button:focus{
+  outline: none;
+  background-color: #054A91;
+}
+
+  </style>
+
+
+
+<div class="container">
+  <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+      <div class="image-container">
+        <center><img src="imagen.jpg" alt="Imagen" id="question-image" style="width: 350px; height: 280px;"></center>
+
+
+
+
+
+      </div>
+
+
+
+      <h2 id="question">Question Text</h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer"
+          id="a" class="answer">
+          <label for="a" id="a_text">Question</label>
+        </li>
+
+          <li>
+          <input type="radio" name="answer"
+          id="b" class="answer">
+          <label for="b" id="b_text">Question</label>
+        </li>
+
+             <li>
+          <input type="radio" name="answer"
+          id="c" class="answer">
+          <label for="c" id="c_text">Question</label>
+        </li>
+
+              <li>
+          <input type="radio" name="answer"
+          id="d" class="answer">
+          <label for="d" id="d_text">Question</label>
+        </li>
+      </ul>
+    </div>
+<button id="submit">Start</button>
+  </div>
+</div>
+<script>
+  //
+  const quizData = [
+
+{
+  question: "1. ¿Quien es el personaje más simpático de Stranger Things?",
+  image: "1.jpg",
+  a:"Kali Prasad",
+  b:"Bob Newby",
+  c:"Alexei",
+  d:"Dustin Henderson",
+  correct: "c",
+
+  },
+
+
+{
+  question: "2. ¿Quien es el personaje más fuerte Stranger Things?",
+  image: "2.jpg",
+  a:"Vecna",
+  b:"Jim Hopper",
+  c:"Once",
+  d:"Nancy Wheeler",
+  correct: "c",
+
+  },
+
+{
+  question: "3. ¿Quien es el personaje más aburrido de Stranger Things?",
+  image: "3.jpg",
+  a:"Ted Wheeler",
+  b:"Lucas Sinclair",
+  c:"Argyle",
+  d:"Mike Wheeler",
+  correct: "a",
+
+  },
+
+  {
+  question: "4. ¿Quien es la más bonita de Stranger Things?",
+  image: "4.jpg",
+  a:"Max",
+  b:"Robin Buckley",
+  c:"Nancy Wheeler",
+  d:"Karen Wheeler",
+  correct: "d",
+  },
+
+    {
+  question: "5. ¿Quien es el mas mense de Stranger Things?",
+  image: "5.jpg",
+  a:"Steve Harrington",
+  b:"Billy",
+  c:"Mike Wheeler",
+  d:"Ted Wheeler",
+  correct: "d",
+  },
+
+    {
+  question: "6. ¿Cuantos hermanos tiene Nancy Wheeler?",
+  image: "6.jpg",
+  a:"1",
+  b:"2",
+  c:"3",
+  d:"No tiene hermanos",
+  correct: "b",
+  },
+
+    {
+  question: "7. ¿Como se llama la hermana de Lucas Sinclair?",
+  image: "7.jpg",
+  a:"Ana",
+  b:"Doris",
+  c:"Erika",
+  d:"Sara",
+  correct: "c",
+  },
+
+    {
+  question: "8. ¿En qué pueblo se desarrolla la serie?",
+  image: "8.jpg",
+  a:"Hawkins",
+  b:"Arlington",
+  c:"Galveston",
+  d:"Pittsburg",
+  correct: "a",
+  },
+
+
+    {
+  question: "9.¿De qué juego de mesa proviene el nombre del Demogorgon?",
+  image: "9.jpg",
+  a:"Descent: Viaje a las tinieblas",
+  b:"Munchkin",
+  c:"Dragones y mazmorras",
+  d:"Monopoly",
+  correct: "c",
+  },
+
+
+    {
+  question: "10. ¿Quiénes son los creadores de Stranger Things?",
+  image: "10.jpg",
+  a:"Matt y Ross Duffer",
+  b:"Steven Spielberg y Tobe Hooper",
+  c:"Bárbara y Andrés Muschietti",
+  d:"Ninguna de las anteriores",
+  correct: "a",
+  },
+
+
+    {
+  question: "11. ¿Cómo se llama el personaje al que da vida Millie Bobby Brown?",
+  image: "11.jpg",
+  a:"Eleven",
+  b:"Nancy",
+  c:"Twelve",
+  d:"Ana",
+  correct: "a",
+  },
+
+
+    {
+  question: "12. ¿Qué nombre le pone Dustin a su mascota del Mundo del Revés?",
+  image: "12.jpg",
+  a:"Luke",
+  b:"D'Artagnan",
+  c:"Frodo",
+  d:"Michael",
+  correct: "b",
+  },
+
+
+    {
+  question: "13. ¿Cómo se comunica Joyce con su hijo desaparecido?",
+  image: "13.jpg",
+  a:"A través de las luces de Navidad",
+  b:"Mediante una cabina telefónica",
+  c:"Usando la Ouija",
+  d:"Codigo Morse",
+  correct: "a",
+  },
+
+
+    {
+  question: "14. ¿Cuál es la profesión de Jim Hopper?",
+  image: "14.jpg",
+  a:"Miembro del cuerpo de bomberos",
+  b:"Chef",
+  c:"Investigador privado",
+  d:"Jefe de Policía",
+  correct: "d",
+  },
+
+
+    {
+  question: "15.¿A qué se dedica Billy Hargrove?",
+  image: "15.jpg",
+  a:"Fontanero",
+  b:"Socorrista",
+  c:"Soldado",
+  d:"Mariguano",
+  correct: "b",
+  },
+
+
+    {
+  question: "16. ¿Cuál es el poder de este personaje?",
+  image: "16.jpg",
+  a:"Telequinesis",
+  b:"Capacidad para volar",
+  c:"Invisibilidad",
+  d:"Leer mentes",
+  correct: "a",
+  },
+
+
+    {
+  question: "17.¿Qué número se le asigna a Henry Creel cuando ingresa en el laboratorio?",
+  image: "17.jpg",
+  a:"004",
+  b:"001",
+  c:"011",
+  d:"007",
+  correct: "b",
+  },
+
+
+    {
+  question: "18. ¿De qué ciudad viene Max Mayfield?",
+  image: "18.jpg",
+  a:"Austin",
+  b:"Londres",
+  c:"California",
+  d:"Kentucky",
+  correct: "c",
+  },
+
+      {
+  question: "19. ¿Cuál de los siguientes personajes es asesinado por un monstruo en la primera temporada?",
+  image: "19.jpg",
+  a:"Bob Newby",
+  b:"Billy Hargrove",
+  c:"Barbara Holland",
+  d:"Billy",
+  correct: "c",
+  },
+
+
+    {
+  question: "20. ¿En qué año se estrenó Stranger Things?",
+  image: "20.jpg",
+  a:"En 2016",
+  b:"En 2018",
+  c:"En 2017",
+  d:"En 2015",
+  correct: "a",
+  },
+
+
+
+  ];
+
+  const quiz = document.getElementById('quiz');
+  const answerEls = document.querySelectorAll('.answer');
+  const questionEl = document.getElementById('question');
+  const a_text = document.getElementById('a_text');
+  const b_text = document.getElementById('b_text');
+  const c_text = document.getElementById('c_text');
+  const d_text = document.getElementById('d_text');
+  const submitBtn = document.getElementById('submit');
+ 
+ let currentQuiz = 0;
+ let score = 0;
+ loadQuiz();
+
+ function loadQuiz(){
+  deselectAnswers();
+  const currentQuizData = quizData[currentQuiz];
+  questionEl.innerText = currentQuizData.question;
+  a_text.innerText = currentQuizData.a;
+  b_text.innerText = currentQuizData.b;
+  c_text.innerText = currentQuizData.c;
+  d_text.innerText = currentQuizData.d;
+
+const questionImage = document.getElementById("question-image");
+questionImage.src = currentQuizData.image;
+
+ }
+
+ function deselectAnswers(){
+ answerEls.forEach(answerEl => answerEl.checked = false); 
+ }
+
+ function getSelected(){
+  let answer;
+
+  answerEls.forEach(answerEl => {
+    if (answerEl.checked) {
+      answer = answerEl.id;
+    }
+  });
+
+  return answer;
+ }
+
+ submitBtn.addEventListener('click', () => {
+  const answer = getSelected();
+
+  if (answer){
+    if (answer === quizData[currentQuiz].correct){
+      score++;
+    }
+
+    currentQuiz++;
+    if(currentQuiz < quizData.length){
+      loadQuiz()
+    } else {
+      quiz.innerHTML = `
+      <h2>Contestaste ${score}/${quizData.length} de preguntas correctamente</h2>
+
+      <button onclick="location.reload()">Repetir</button>
+      `
+    }
+  }
+ })
+
+</script>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section about">
+    <h2>Contáctame!!</h2>
+        <p>Si estas interesado en contactarme, puedes hacerlo a traves de las siguientes redes sociales:</p>
+        <div class="contact-links">
+          <a href="http://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="http://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="http://www.twitter.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="http://www.snapchat.com/miperfil" target="_blank"><i class="fab fa-snapchat"></i></a>
+          <a href="http://www.linkedin.com/miperfil" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="http://www.youtube.com/miperfil" target="_blank"><i class="fab fa-youtube"></i></a>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //Con lo siguiente hare que los links de las paginas se abran mediante javascript en un pagina nueva
+const socialnetworks = document.querySelectorAll('.contact-links a');
+socialnetworks.forEach(link =>{
+  link.addEventListener('click', e =>{
+    e.preventDefault();
+    window.open(link.href, '_blank');
+  });
+});
+</script>
+</footer>
+</body>
+</html>
